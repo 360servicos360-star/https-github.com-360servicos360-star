@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lando Augusto Ribeiro João · Web Developer</title>
+<meta name="description" content="Portfólio de Lando Augusto Ribeiro João: menu digital, convite de casamento e factura digital, todos online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F3F6F8;
+    --surface: #FFFFFF;
+    --ink: #0E2430;
+    --muted: #51636D;
+    --accent: #2437D6;
+    --accent-ink: #FFFFFF;
+    --line: #D3DDE3;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0C1820;
+      --surface: #122430;
+      --ink: #E6EEF2;
+      --muted: #9AAEB9;
+      --accent: #8CA0FF;
+      --accent-ink: #0C1820;
+      --line: #24384A;
+      color-scheme: dark;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 22px; }
+
+  /* Topo */
+  header.hero { padding: 72px 0 56px; }
+  .hero h1 {
+    font-family: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.3rem, 6.5vw, 4.4rem);
+    line-height: 1.03;
+    letter-spacing: -0.02em;
+    margin: 0 0 22px;
+    max-width: 14ch;
+  }
+  .hero p.lead { font-size: 1.15rem; max-width: 52ch; color: var(--muted); margin: 0 0 28px; }
+  .hero .who { font-weight: 600; margin: 0 0 18px; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .btn {
+    display: inline-block;
+    padding: 11px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    text-decoration: none;
+    border: 2px solid var(--accent);
+  }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); }
+  .btn.ghost { color: var(--ink); border-color: var(--line); }
+  .btn.ghost:hover, .btn.primary:hover { border-color: var(--accent); }
+
+  /* Projectos */
+  section.work { padding: 24px 0 40px; }
+  .project {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 44px 0;
+    border-top: 1px solid var(--line);
+  }
+  .project h2 {
+    font-family: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+    line-height: 1.15;
+    margin: 0 0 12px;
+  }
+  .project p { margin: 0 0 14px; max-width: 54ch; }
+  .project ul { margin: 0 0 18px; padding-left: 1.1em; color: var(--muted); max-width: 54ch; }
+  .project ul li { margin-bottom: 4px; }
+  .project .stack { color: var(--muted); font-size: 0.92rem; margin: 0 0 20px; }
+  .project .links { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* Pré-visualização ao vivo do projecto */
+  .device {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 9 / 16;
+    border: 8px solid var(--ink);
+    border-radius: 26px;
+    background: var(--surface);
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+  }
+  .device iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 390px;
+    height: 693px;
+    border: 0;
+    transform-origin: top left;
+    background: var(--surface);
+  }
+
+  /* Rodapé */
+  footer { padding: 48px 0 72px; border-top: 1px solid var(--line); }
+  footer h2 {
+    font-family: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    font-size: 1.6rem;
+    margin: 0 0 10px;
+  }
+  footer p { margin: 0 0 20px; color: var(--muted); max-width: 52ch; }
+  footer p.contact { margin: 22px 0 0; }
+
+  @media (max-width: 720px) {
+    .project { grid-template-columns: 1fr; gap: 24px; padding: 36px 0; }
+    .device { max-width: 240px; }
+    header.hero { padding: 48px 0 36px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="who">Lando Augusto Ribeiro João, Web Developer</p>
+    <h1>Construo aplicações Web que cabem num link.</h1>
+    <p class="lead">Menus digitais, convites de casamento e facturas online, feitos para funcionar no telemóvel de quem os usa. Abaixo estão três projectos reais: pode abri-los e testar.</p>
+    <div class="actions">
+      <a class="btn primary" href="#projectos">Ver projectos</a>
+      <a class="btn ghost" href="https://github.com/360servicos360-star">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main id="projectos">
+  <section class="work">
+    <div class="wrap">
+
+      <article class="project">
+        <div class="device">
+          <iframe src="https://360servicos360-star.github.io/Menu-Digital/" title="Pré-visualização do Menu Digital" loading="lazy"></iframe>
+        </div>
+        <div>
+          <h2>Menu Digital para restauração</h2>
+          <p>Um menu online para restaurantes. O cliente abre um único link no telemóvel e vê os pratos e os preços, sem menu impresso.</p>
+          <p class="stack">HTML, CSS, JavaScript</p>
+          <div class="links">
+            <a class="btn primary" href="https://360servicos360-star.github.io/Menu-Digital/">Ver online</a>
+            <a class="btn ghost" href="https://github.com/360servicos360-star/Menu-Digital">Ver código</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="device">
+          <iframe src="https://360servicos360-star.github.io/Guia-de-casamento-2/" title="Pré-visualização do Convite Digital de Casamento" loading="lazy"></iframe>
+        </div>
+        <div>
+          <h2>Convite digital de casamento</h2>
+          <p>Uma página única para enviar por link, em vez de ligar a cada convidado. Inclui:</p>
+          <ul>
+            <li>A história do casal e fotos</li>
+            <li>Programa do dia e mapa do local</li>
+            <li>Lista de presentes</li>
+            <li>Confirmação de presença: a mensagem chega directamente ao WhatsApp dos noivos</li>
+          </ul>
+          <p class="stack">HTML, CSS, JavaScript, integração com WhatsApp</p>
+          <div class="links">
+            <a class="btn primary" href="https://360servicos360-star.github.io/Guia-de-casamento-2/">Ver online</a>
+            <a class="btn ghost" href="https://github.com/360servicos360-star/Guia-de-casamento-2">Ver código</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="device">
+          <iframe src="https://360servicos360-star.github.io/Factura-Digital-Online/" title="Pré-visualização da Factura Digital Online" loading="lazy"></iframe>
+        </div>
+        <div>
+          <h2>Factura Digital Online</h2>
+          <p>Uma factura que se cria e se abre no navegador, pronta para partilhar com o cliente, sem programas instalados.</p>
+          <p class="stack">HTML, CSS, JavaScript</p>
+          <div class="links">
+            <a class="btn primary" href="https://360servicos360-star.github.io/Factura-Digital-Online/">Ver online</a>
+            <a class="btn ghost" href="https://github.com/360servicos360-star/Factura-Digital-Online">Ver código</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <h2>Vamos trabalhar juntos</h2>
+    <p>Todo o código está no GitHub. Se quiser ver como cada projecto foi construído, abra o repositório.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:Lando4422@gmail.com">Enviar email</a>
+      <a class="btn ghost" href="https://wa.me/244943804370">WhatsApp</a>
+      <a class="btn ghost" href="https://github.com/360servicos360-star">GitHub</a>
+    </div>
+    <p class="contact">Telefone: <a href="tel:+244943804370">943 804 370</a> / <a href="tel:+244957760561">957 760 561</a><br>Email: <a href="mailto:Lando4422@gmail.com">Lando4422@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+  // Ajusta a pré-visualização ao tamanho do ecrã do telemóvel
+  function fitPreviews() {
+    document.querySelectorAll('.device').forEach(function (device) {
+      var frame = device.querySelector('iframe');
+      var inner = device.clientWidth;
+      frame.style.transform = 'scale(' + (inner / 390) + ')';
+    });
+  }
+  window.addEventListener('load', fitPreviews);
+  window.addEventListener('resize', fitPreviews);
+  fitPreviews();
+</script>
+</body>
+</html>
